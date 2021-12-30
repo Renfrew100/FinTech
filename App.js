@@ -77,7 +77,7 @@ const App: () => Node = () => {
           <Section title="See Your Changes">
             <ReloadInstructions />
           </Section>
-          <Section title="Debug">
+          <Section title="JASON IS HERE">
             <DebugInstructions />
           </Section>
           <Section title="Learn More">
