@@ -1,5 +1,7 @@
 import React from 'react';
 import {ImageBackground, Image} from 'react-native';
+
+import image from '../styles/image';
 const CustomImage = ({
   children,
   source,
@@ -8,7 +10,7 @@ const CustomImage = ({
 }) => {
   if (backgroundImage) {
     return (
-      <ImageBackground source={source} resizeMode="cover" style={style}>
+      <ImageBackground source={source} resizeMode="cover" style={image.full_background}>
         {children}
       </ImageBackground>
     );
