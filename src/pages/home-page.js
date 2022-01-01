@@ -10,6 +10,8 @@ import homePage from '../styles/homePage';
 const HomePage = ({navigation}) => {
   // navigation is passed to every screen component
   const loginHandler = () => navigation.navigate('Login');
+  const signUpHandler = () => navigation.navigate('SignUp');
+
   // const submitHandler = () => navigation.navigate("Submit");
   return (
     <View>
@@ -17,7 +19,7 @@ const HomePage = ({navigation}) => {
         <AppHeader />
         <View style={homePage.centerButtons}>
           <CustomButton buttonText="LOGIN" buttonHandler={loginHandler} />
-          <CustomButton buttonText="SIGN UP" buttonHandler={loginHandler} />
+          <CustomButton buttonText="SIGN UP" buttonHandler={signUpHandler} />
         </View>
       </BackgroundImage>
     </View>
