@@ -11,6 +11,7 @@ export default StyleSheet.create({
   formLabel: {
     fontSize: 45,
     color: '#fff',
+    textAlign: "center"
   },
 
   inputStyle: {

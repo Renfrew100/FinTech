@@ -9,14 +9,15 @@ import homePage from '../styles/homePage';
 
 const HomePage = ({navigation}) => {
   // navigation is passed to every screen component
-  const buttonHandler = () => navigation.navigate('Login');
+  const loginHandler = () => navigation.navigate('Login');
+  // const submitHandler = () => navigation.navigate("Submit");
   return (
     <View>
       <BackgroundImage>
         <AppHeader />
         <View style={homePage.centerButtons}>
-          <CustomButton buttonText="LOGIN" buttonHandler={buttonHandler} />
-          <CustomButton buttonText="SIGN UP" buttonHandler={buttonHandler} />
+          <CustomButton buttonText="LOGIN" buttonHandler={loginHandler} />
+          <CustomButton buttonText="SIGN UP" buttonHandler={loginHandler} />
         </View>
       </BackgroundImage>
     </View>
