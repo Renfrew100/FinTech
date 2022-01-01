@@ -7,19 +7,13 @@
  */
 
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 
-import CustomImage from '../components/custom-image';
 import Form from '../components/form';
 import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
-
-const bankImage = {
-  uri: 'https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/686015/cover-0521_FintechRefresh_Luke-Cover-3818fbe9eab767c8302f9280f71467de-17adbeff8ab6e2a0ccb23f3c469cdd2e.png',
-};
-
-import text from '../styles/text';
-import login from '../styles/login';
+import AppHeader from '../components/app-header';
+import BackgroundImage from '../components/background-image';
 
 const Login = () => {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -27,22 +21,14 @@ const Login = () => {
 
   const buttonHandler = () => {
     alert(`email is ${enteredEmail} and password is ${enteredPassword}`);
-    setEnteredEmail("")
-    setEnteredPassword("")
+    setEnteredEmail('');
+    setEnteredPassword('');
   };
 
   return (
     <View>
-      <CustomImage source={bankImage} backgroundImage>
-        <Text
-          style={{
-            ...text.extraLargeTextSize,
-            ...text.centerText,
-            ...text.redText,
-          }}>
-          FINTECH
-        </Text>
-        <View style={login.bottomBorder} />
+      <BackgroundImage>
+        <AppHeader />
 
         <Form headerText="Login">
           <FormTextInput
@@ -58,7 +44,7 @@ const Login = () => {
           />
           <CustomButton buttonText="LOGIN" buttonHandler={buttonHandler} />
         </Form>
-      </CustomImage>
+      </BackgroundImage>
     </View>
   );
 };
