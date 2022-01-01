@@ -7,6 +7,7 @@ const FormTextInput = ({placeholder, secureTextEntry, onChangeText, value}) => {
   return (
     <TextInput
       placeholder={placeholder}
+      placeholderTextColor="#888"
       style={form.inputStyle}
       secureTextEntry={secureTextEntry}
       onChangeText={onChangeText}

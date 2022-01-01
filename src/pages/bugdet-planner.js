@@ -20,7 +20,7 @@ const BugdetPlanner = () => {
   const calculateHandler = () => {
     budgetCalculation(payRateSavings);
     setModalVisible(true);
-    setPayRate("")
+    setPayRateSavings("")
   };
 
   const budgetCalculation = income => {

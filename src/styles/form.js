@@ -21,17 +21,6 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 50,
     backgroundColor: '#fff',
-  },
-
-  formText: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: '#000',
-    fontSize: 20,
-  },
-
-  text: {
-    color: '#000',
-    fontSize: 20,
-  },
+    color: "#000"
+  }
 });
