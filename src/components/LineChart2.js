@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, Dimensions, StyleSheet} from 'react-native';
-import {BarChart} from 'react-native-chart-kit';
+import {LineChart} from 'react-native-chart-kit';
+
+import Legend from './Legend';
 
 const screenWidth = Dimensions.get('window').width;
 
-function FinanceBarChart({title, fillShadowGradient, data}) {
+function FinanceLineChart({title, chartData, legend, fillShadowGradient}) {
   const chartConfig = {
     backgroundGradientFrom: '#fff',
     backgroundGradientFromOpacity: 0,
@@ -12,31 +14,13 @@ function FinanceBarChart({title, fillShadowGradient, data}) {
     backgroundGradientToOpacity: 0.5,
 
     fillShadowGradient,
-    fillShadowGradientOpacity: 1,
+    fillShadowGradientOpacity: 0,
     color: (opacity = 1) => `#023047`,
     labelColor: (opacity = 1) => `#333`,
     strokeWidth: 2,
 
-    barPercentage: 0.5,
     useShadowColorFromDataset: false,
     decimalPlaces: 0,
-  };
-
-  const labels = data.map(item => {
-    return item.label;
-  });
-
-  const values = data.map(item => {
-    return item.value;
-  });
-
-  const chartData = {
-    labels,
-    datasets: [
-      {
-        data: values,
-      },
-    ],
   };
 
   return (
@@ -44,13 +28,18 @@ function FinanceBarChart({title, fillShadowGradient, data}) {
       <View style={styles.titleContainer}>
         <Text>{title}</Text>
       </View>
-      <BarChart
+      <LineChart
         data={chartData}
         width={screenWidth}
         height={220}
         chartConfig={chartConfig}
-        showBarTops={false}
       />
+
+      <View style={styles.legendContainer}>
+        {legend.map(({name, color}) => {
+          return <Legend key={name} name={name} color={color} />;
+        })}
+      </View>
     </View>
   );
 }
@@ -63,6 +52,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
+  legendContainer: {
+    flex: 1,
+    marginTop: 20,
+    alignItems: 'center',
+  },
 });
 
-export default FinanceBarChart;
+export default FinanceLineChart;
