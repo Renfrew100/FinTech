@@ -23,18 +23,14 @@ const IncomeExpenses = ({navigation}) => {
   const [Loans, setLoans] = useState(0);
 
   const buttonHandler = () => {
-    budgetCalculation(payCreditCardSavings);
-   // navigation.navigate('Root', { screen: 'LineChart2' });
-
-   // <Drawer.Navigator>
-   //   <Drawer.Screen name="LineChart2" component={LineChart2} />
-    //</Drawer.Navigator>
-    //navigation.navigate("/src/components/LineChart2")
+    navigation.navigate("LineChart")
   };
 
+/*
   const budgetCalculation = income => {
       setProperty(income * 0.5);
     };
+*/
 
   return (
     <View>

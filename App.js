@@ -9,7 +9,7 @@ import HomePage from './src/pages/home-page';
 import AuthenticatedHomePage from './src/pages/authenticated-home-page';
 import BudgetPlanner from './src/pages/bugdet-planner';
 import IncomeExpenses from './src/pages/IncomeExpenses';
-//import LineChart2 from './src/components/LineChart2';
+import LineChart from './src/pages/LineChart';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +45,11 @@ const App = () => {
         <Stack.Screen
           name="IncomeExpenses"
           component={IncomeExpenses}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="LineChart"
+          component={LineChart}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
