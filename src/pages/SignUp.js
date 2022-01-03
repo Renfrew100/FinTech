@@ -26,10 +26,14 @@ const SignUp = ({navigation}) => {
 
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
-
-  const buttonHandler = () => {
+  const toLogin = () => {
     navigation.navigate("Login")
   };
+
+  const backHome = () => {
+    navigation.navigate("Home")
+  };
+
 
   return (
     <View>
@@ -37,21 +41,11 @@ const SignUp = ({navigation}) => {
         <AppHeader />
 
         <Form headerText="SignUp">
+
           <FormTextInput
-            placeholder="First Name"
+            placeholder="First Name, Last Name"
             onChangeText={setEnteredFirstName}
             value={enteredFirstName}
-          />
-           <FormTextInput
-            placeholder="Last Name"
-            onChangeText={setEnteredLastName}
-            value={enteredLastName}
-          />
-          <FormTextInput
-            secureTextEntry={true}
-            placeholder="Email"
-            onChangeText={setEnteredEmail}
-            value={enteredEmail}
           />
           <FormTextInput
             secureTextEntry={true}
@@ -62,10 +56,11 @@ const SignUp = ({navigation}) => {
           <FormTextInput
             secureTextEntry={true}
             placeholder="Confirm Password"
-            onChangeText={setEnteredConfirmPassword}
-            value={enteredConfirmPassword}
+            onChangeText={setEnteredPassword}
+            value={enteredPassword}
           />
-          <CustomButton buttonText="SignUp" buttonHandler={buttonHandler} />
+        <CustomButton buttonText="SignUp" buttonHandler={toLogin} />
+        <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </Form>
       </BackgroundImage>
     </View>

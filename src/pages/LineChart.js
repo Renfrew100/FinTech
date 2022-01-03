@@ -23,7 +23,7 @@ import {
     };
 
     const data = {
-      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      labels: ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"],
       datasets: [
         {
           data: ["-100000", "-90000", "-80000", "-70000", "-60000", "-50000","-40000","-30000","-20000","-10000", "10000", "20000", "30000", "40000", "50000", "60000", "70000", "80000", "90000", "100000"],

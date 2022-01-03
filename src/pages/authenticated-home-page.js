@@ -10,6 +10,8 @@ import homePage from '../styles/homePage';
 const AuthenticatedHomePage = ({navigation}) => {
   const budgetPlannerHandler = () => navigation.navigate('BudgetPlanner');
   const incomeExpensesHandler = () => navigation.navigate('IncomeExpenses')
+  const backHome = () => navigation.navigate('Home')
+
   return (
     <View>
       <BackgroundImage>
@@ -17,6 +19,7 @@ const AuthenticatedHomePage = ({navigation}) => {
         <View style={homePage.centerButtons}>
           <CustomButton buttonText="BUDGET PLANNER" buttonHandler={budgetPlannerHandler} />
           <CustomButton buttonText="INCOME/EXPENSES" buttonHandler={incomeExpensesHandler} />
+          <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </View>
       </BackgroundImage>
     </View>

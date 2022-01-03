@@ -22,8 +22,12 @@ const IncomeExpenses = ({navigation}) => {
   const [property, setProperty] = useState(0);
   const [Loans, setLoans] = useState(0);
 
-  const buttonHandler = () => {
+  const generateLineChart = () => {
     navigation.navigate("LineChart")
+  };
+
+  const backHome = () => {
+    navigation.navigate("Home")
   };
 
 /*
@@ -58,8 +62,8 @@ const IncomeExpenses = ({navigation}) => {
              onChangeText={setLoans}
              value={Loans}
           />
-          <CustomButton buttonText="Generate" buttonHandler={buttonHandler} />
-
+          <CustomButton buttonText="Generate" buttonHandler={generateLineChart} />
+          <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </Form>
       </BackgroundImage>
     </View>

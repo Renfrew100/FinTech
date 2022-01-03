@@ -19,9 +19,14 @@ const Login = ({navigation}) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  const buttonHandler = () => {
+  const buttonAuth = () => {
     navigation.navigate("Authenticated")
   };
+
+  const backHome = () => {
+      navigation.navigate("Home")
+  };
+
 
   return (
     <View>
@@ -40,7 +45,8 @@ const Login = ({navigation}) => {
             onChangeText={setEnteredPassword}
             value={enteredPassword}
           />
-          <CustomButton buttonText="LOGIN" buttonHandler={buttonHandler} />
+          <CustomButton buttonText="LOGIN" buttonHandler={buttonAuth} />
+          <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </Form>
       </BackgroundImage>
     </View>

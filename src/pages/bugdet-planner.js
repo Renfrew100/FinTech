@@ -9,7 +9,7 @@ import CustomButton from '../components/custom-button';
 import CustomModal from '../components/custom-modal';
 import modal from '../styles/modal';
 
-const BugdetPlanner = () => {
+const BugdetPlanner = ({navigation}) => {
   const [payRateSavings, setPayRateSavings] = useState('');
   const [necessity, setNecessity] = useState(0);
   const [wants, setWants] = useState(0);
@@ -22,6 +22,11 @@ const BugdetPlanner = () => {
     setModalVisible(true);
     setPayRateSavings("")
   };
+
+  const backHome = () => {
+    navigation.navigate("Home")
+  };
+
 
   const budgetCalculation = income => {
     setNecessity(income * 0.5);
@@ -63,6 +68,10 @@ const BugdetPlanner = () => {
           <CustomButton
             buttonText="CALCULATE"
             buttonHandler={calculateHandler}
+          />
+          <CustomButton
+            buttonText="Back to Home"
+            buttonHandler={backHome}
           />
         </Form>
       </BackgroundImage>
