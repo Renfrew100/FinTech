@@ -14,12 +14,7 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-<<<<<<< HEAD
-import auth from '@react-native-firebase/auth'
-//import { auth } from 'firebase/app';
-=======
 import auth from '@react-native-firebase/auth';
->>>>>>> db307a67f710dd7f6a390e9279e1032a1e4523cb
 
 const SignUp = ({navigation}) => {
   const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -32,15 +27,6 @@ const SignUp = ({navigation}) => {
 
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
-<<<<<<< HEAD
-  const toLogin = () => {
-          auth().createUserWithEmailAndPassword(enteredEmail, enteredPassword)
-           .then(userCredentials => {
-               const user = userCredentials.user;
-               console.log(user.email);
-           })
-           .catch(error => alert(error.message))
-=======
   const toLogin = async () => {
     try {
       await auth().createUserWithEmailAndPassword(enteredEmail, enteredPassword);
@@ -48,7 +34,6 @@ const SignUp = ({navigation}) => {
       console.log(e)
     }
   
->>>>>>> db307a67f710dd7f6a390e9279e1032a1e4523cb
 
     navigation.navigate('Login');
   };
