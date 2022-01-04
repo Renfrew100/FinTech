@@ -5,7 +5,7 @@ export default StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: "60%"
+    height: "100%"
   },
 
   formLabel: {

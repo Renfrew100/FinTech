@@ -14,7 +14,7 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-//import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 
 const SignUp = ({navigation}) => {
   const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -64,6 +64,11 @@ const SignUp = ({navigation}) => {
             placeholder="First Name, Last Name"
             onChangeText={setEnteredFirstName}
             value={enteredFirstName}
+          />
+          <FormTextInput
+            placeholder="Email"
+            onChangeText={setEnteredEmail}
+            value={enteredEmail}
           />
           <FormTextInput
             secureTextEntry={true}

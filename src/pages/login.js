@@ -14,7 +14,7 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-//import { auth } from 'firebase';
+import { auth } from 'firebase/app';
 
 const Login = ({navigation}) => {
   const [enteredEmail, setEnteredEmail] = useState('');
