@@ -14,6 +14,7 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
+//import { auth } from 'firebase';
 
 const SignUp = ({navigation}) => {
   const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -27,6 +28,14 @@ const SignUp = ({navigation}) => {
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
   const toLogin = () => {
+      auth
+           .createUserWithEmailAndPassword(email, password)
+           .then(userCredentials => {
+               const user = userCredentials.user;
+               console.log(user.email);
+           })
+           .catch(error => alert(error.message))
+
     navigation.navigate("Login")
   };
 
@@ -34,6 +43,15 @@ const SignUp = ({navigation}) => {
     navigation.navigate("Home")
   };
 
+  /*const handleSignUp = () => {
+    auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log(user.email);
+        })
+        .catch(error => alert(error.message))
+  }*/
 
   return (
     <View>
@@ -56,9 +74,10 @@ const SignUp = ({navigation}) => {
           <FormTextInput
             secureTextEntry={true}
             placeholder="Confirm Password"
-            onChangeText={setEnteredPassword}
+            onChangeText={setEnteredConfirmPassword}
             value={enteredPassword}
           />
+
         <CustomButton buttonText="SignUp" buttonHandler={toLogin} />
         <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </Form>

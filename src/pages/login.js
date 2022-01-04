@@ -14,19 +14,27 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
+//import { auth } from 'firebase';
 
 const Login = ({navigation}) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
 
   const buttonAuth = () => {
-    navigation.navigate("Authenticated")
+       auth
+            .signInWithEmailAndPassword(email, password)
+            .then(userCredentials => {
+                const user = userCredentials.user;
+                console.log(user.email);
+            })
+            .catch(error => alert(error.message))
+
+   navigation.navigate("Authenticated")
   };
 
   const backHome = () => {
       navigation.navigate("Home")
   };
-
 
   return (
     <View>
@@ -54,3 +62,4 @@ const Login = ({navigation}) => {
 };
 
 export default Login;
+
