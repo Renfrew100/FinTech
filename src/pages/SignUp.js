@@ -14,7 +14,7 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-//import { auth } from 'firebase';
+import auth from '@react-native-firebase/auth';
 
 const SignUp = ({navigation}) => {
   const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -27,20 +27,19 @@ const SignUp = ({navigation}) => {
 
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
-  const toLogin = () => {
-      auth
-           .createUserWithEmailAndPassword(email, password)
-           .then(userCredentials => {
-               const user = userCredentials.user;
-               console.log(user.email);
-           })
-           .catch(error => alert(error.message))
+  const toLogin = async () => {
+    try {
+      await auth().createUserWithEmailAndPassword(enteredEmail, enteredPassword);
+    } catch( e) {
+      console.log(e)
+    }
+  
 
-    navigation.navigate("Login")
+    navigation.navigate('Login');
   };
 
   const backHome = () => {
-    navigation.navigate("Home")
+    navigation.navigate('Home');
   };
 
   /*const handleSignUp = () => {
@@ -59,11 +58,20 @@ const SignUp = ({navigation}) => {
         <AppHeader />
 
         <Form headerText="SignUp">
-
           <FormTextInput
-            placeholder="First Name, Last Name"
+            placeholder="First Name"
             onChangeText={setEnteredFirstName}
             value={enteredFirstName}
+          />
+          <FormTextInput
+            placeholder="Last Name"
+            onChangeText={setEnteredLastName}
+            value={enteredLastName}
+          />
+          <FormTextInput
+            placeholder="Email"
+            onChangeText={setEnteredEmail}
+            value={enteredEmail}
           />
           <FormTextInput
             secureTextEntry={true}
@@ -78,8 +86,8 @@ const SignUp = ({navigation}) => {
             value={enteredPassword}
           />
 
-        <CustomButton buttonText="SignUp" buttonHandler={toLogin} />
-        <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
+          <CustomButton buttonText="SignUp" buttonHandler={toLogin} />
+          <CustomButton buttonText="Back to Home" buttonHandler={backHome} />
         </Form>
       </BackgroundImage>
     </View>
