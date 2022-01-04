@@ -14,7 +14,8 @@ import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-import { auth } from 'firebase/app';
+import auth from '@react-native-firebase/auth'
+//import { auth } from 'firebase/app';
 
 const SignUp = ({navigation}) => {
   const [enteredFirstName, setEnteredFirstName] = useState('');
@@ -28,8 +29,7 @@ const SignUp = ({navigation}) => {
   const [enteredConfirmPassword, setEnteredConfirmPassword] = useState('');
 
   const toLogin = () => {
-      auth
-           .createUserWithEmailAndPassword(email, password)
+          auth().createUserWithEmailAndPassword(enteredEmail, enteredPassword)
            .then(userCredentials => {
                const user = userCredentials.user;
                console.log(user.email);
@@ -80,7 +80,7 @@ const SignUp = ({navigation}) => {
             secureTextEntry={true}
             placeholder="Confirm Password"
             onChangeText={setEnteredConfirmPassword}
-            value={enteredPassword}
+            value={enteredConfirmPassword}
           />
 
         <CustomButton buttonText="SignUp" buttonHandler={toLogin} />
