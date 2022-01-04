@@ -7,33 +7,54 @@
  */
 
 import React, {useState} from 'react';
-import {View} from 'react-native';
+import {View, Alert} from 'react-native';
 
 import Form from '../components/form';
 import FormTextInput from '../components/form-text-input';
 import CustomButton from '../components/custom-button';
 import AppHeader from '../components/app-header';
 import BackgroundImage from '../components/background-image';
-// import auth from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 
 const Login = ({navigation}) => {
   const [enteredEmail, setEnteredEmail] = useState('');
   const [enteredPassword, setEnteredPassword] = useState('');
 
-  const buttonAuth = () => {
-      //  auth()
-      //       .signInWithEmailAndPassword(email, password)
-      //       .then(userCredentials => {
-      //           const user = userCredentials.user;
-      //           console.log(user.email);
-      //       })
-      //       .catch(error => alert(error.message))
+  const buttonAuth = async () => {
+    try {
+      await auth().signInWithEmailAndPassword(enteredEmail, enteredPassword);
+      navigation.navigate('Authenticated');
+    } catch (error) {
+      switch (error.code) {
+        case 'auth/user-not-found':
+          Alert.alert(
+            'Email not found',
+            `Email ${enteredEmail} is not an existing user`,
+            [{text: 'OK'}],
+          );
+          break;
+        case 'auth/invalid-email':
+          Alert.alert('Invalid Email', `Email ${enteredEmail} does not exist`, [
+            {text: 'OK'},
+          ]);
+          break;
+        case 'auth/wrong-password':
+          Alert.alert(
+            'Invalid Password',
+            `Password does not match email ${enteredEmail}`,
+            [{text: 'OK'}],
+          );
+          break;
 
-   navigation.navigate("Authenticated")
+        default:
+          break;
+      }
+      console.log(error);
+    }
   };
 
   const backHome = () => {
-      navigation.navigate("Home")
+    navigation.navigate('Home');
   };
 
   return (
@@ -62,4 +83,3 @@ const Login = ({navigation}) => {
 };
 
 export default Login;
-
