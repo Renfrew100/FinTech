@@ -10,12 +10,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-firebase/app": "^14.2.1",
+    "@react-native-firebase/app": "^17.4.3",
     "@react-native-firebase/auth": "^14.2.1",
-    "@react-navigation/native": "^6.0.6",
+    "@react-navigation/native": "^6.1.0",
     "@react-navigation/native-stack": "^6.2.5",
     "expo-cli": "^5.0.3",
-    "firebase": "^9.6.1",
+    "firebase": "^10.2.0",
     "index": "^0.4.0",
     "react": "17.0.2",
     "react-native": "0.66.4",
